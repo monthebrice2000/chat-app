@@ -76,6 +76,9 @@ const message = 'Welcome!'
  */
 app.use( express.static( path.join( __dirname, '../public') ) )
 
+
+app.set('port', (process.env.PORT || 5000));
+
 /**
  * Ecouter un evenement de connexion provenant d'un client
  */
@@ -210,6 +213,6 @@ io.on( 'connection' , (socket) => {
 /**
  * Listen on port 3000 // creer le port d'ecoute du serveur
  */
-server.listen( process.env.PORT || 5000 , () => {
-    console.log( console.log('Server is running ') )
+server.listen( app.get( 'port' ), () => {
+    console.log( console.log('Server is running ', app.get( 'port' ) ) )
 })
