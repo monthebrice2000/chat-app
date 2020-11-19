@@ -210,6 +210,6 @@ io.on( 'connection' , (socket) => {
 /**
  * Listen on port 3000 // creer le port d'ecoute du serveur
  */
-server.listen( Number( 3000  ) , () => {
-    console.log( generateMessage ( '', 'Server is running').text , moment (generateMessage('', '').createdAt ).format('h:min:ss a') )
+server.listen( process.env.PORT || 5000 , () => {
+    console.log( console.log('Server is running ') )
 })
